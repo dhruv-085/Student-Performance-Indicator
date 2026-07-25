@@ -1,6 +1,6 @@
 ## What is the use of sys, so basically any exception that get generated, the sys will have them
 import sys
-import logging
+from src.logger import logging
 def error_message_detail(error, error_detail: sys):
     ## Basically gives three infos, but first two aren't imp
     ## exc_tb will hold the main info, like which line, which file, what kind of exception did occur 
@@ -13,7 +13,7 @@ def error_message_detail(error, error_detail: sys):
     )
     return error_message
 
-                      ## The Exception is the python's default, basic error class 
+                    ## The Exception is the python's default, basic error class 
 class CustomException(Exception):
     def __init__(self, error_message, error_detail:sys):
         ## through super I am calling, the default class first, so it makes the initial default things before running custom exception handling
@@ -22,4 +22,3 @@ class CustomException(Exception):
 
     def __str__(self):
         return self.error_message
-    
